@@ -1,0 +1,86 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "TG Motors API",
+    "description": "API car services",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/services/": {
+      "get": {
+        "tags": [
+          "Services"
+        ],
+        "description": "Get all services",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Services"
+        ],
+        "description": "Create a Service",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Service data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "service": {
+                  "type": "string",
+                  "example": "Cambio de aceite"
+                },
+                "vehicleType": {
+                  "type": "string",
+                  "example": "car"
+                },
+                "category": {
+                  "type": "string",
+                  "example": "maintenance"
+                },
+                "technician": {
+                  "type": "string",
+                  "example": "Carlos"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "Bogota"
+                },
+                "price": {
+                  "type": "number",
+                  "example": 120000
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Basic service"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  }
+}
