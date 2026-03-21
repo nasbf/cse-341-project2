@@ -42,7 +42,7 @@
               "properties": {
                 "service": {
                   "type": "string",
-                  "example": "Cambio de aceite"
+                  "example": "oil change"
                 },
                 "vehicleType": {
                   "type": "string",
@@ -78,6 +78,169 @@
           },
           "400": {
             "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/services/{id}": {
+      "put": {
+        "tags": [
+          "Services"
+        ],
+        "description": "Update a Service",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Service Id"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Updated service data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "service": {
+                  "type": "string",
+                  "example": "oil change"
+                },
+                "vehicleType": {
+                  "type": "string",
+                  "example": "car"
+                },
+                "category": {
+                  "type": "string",
+                  "example": "maintenance"
+                },
+                "technician": {
+                  "type": "string",
+                  "example": "Carlos"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "Bogota"
+                },
+                "price": {
+                  "type": "number",
+                  "example": 120000
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Basic service"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Service updated successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Service updated succesfully"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "example": "69be117a9ce90d2b8b5769f8"
+                    },
+                    "service": {
+                      "type": "string",
+                      "example": "oil change"
+                    },
+                    "vehicleType": {
+                      "type": "string",
+                      "example": "car"
+                    },
+                    "category": {
+                      "type": "string",
+                      "example": "maintenance"
+                    },
+                    "technician": {
+                      "type": "string",
+                      "example": "Javier"
+                    },
+                    "location": {
+                      "type": "string",
+                      "example": "Bogota"
+                    },
+                    "price": {
+                      "type": "number",
+                      "example": 150000
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Updated service"
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "404": {
+            "description": "Service not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Services"
+        ],
+        "description": "Delete a Service",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Service Id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Service deleted successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Service deleted successfully"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "example": "69be117a9ce90d2b8b5769f8"
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "404": {
+            "description": "Service not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
