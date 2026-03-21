@@ -30,6 +30,7 @@ const createService = async (req, res) => {
     });
   }
 };
+
 const updateService = async (req, res) => {
     
     try {

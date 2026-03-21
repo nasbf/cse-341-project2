@@ -244,6 +244,216 @@
           }
         }
       }
+    },
+    "/appointments/": {
+      "get": {
+        "tags": [
+          "Appointments"
+        ],
+        "description": "Get all appointments",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Appointments"
+        ],
+        "description": "Create new appointment",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Appointment data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string",
+                  "example": "any"
+                },
+                "lastName": {
+                  "type": "string",
+                  "example": "any"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "any@**.com"
+                },
+                "phone": {
+                  "type": "string",
+                  "example": "3225689875"
+                },
+                "date": {
+                  "type": "string",
+                  "example": "2026-05-10"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/appointments/{id}": {
+      "put": {
+        "tags": [
+          "Appointments"
+        ],
+        "description": "Update an appointment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Appointment Id"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Updated appointment data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string",
+                  "example": "any"
+                },
+                "lastName": {
+                  "type": "string",
+                  "example": "any"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "any@**.com"
+                },
+                "phone": {
+                  "type": "string",
+                  "example": "3225689875"
+                },
+                "date": {
+                  "type": "string",
+                  "example": "2026-05-10"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Appointment updated successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Appointment updated succesfully"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "example": "69be117a9ce90d2b8b5769f8"
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "any"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "any"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "any@**.com"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "example": "3225689875"
+                    },
+                    "date": {
+                      "type": "string",
+                      "example": "2026-05-10"
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "404": {
+            "description": "Appointment not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Appointments"
+        ],
+        "description": "Delete an appointment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Service Id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Appointment deleted successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Appointment deleted successfully"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "example": "69be117a9ce90d2b8b5769f8"
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "404": {
+            "description": "Appointment not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   }
 }
