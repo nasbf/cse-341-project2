@@ -36,7 +36,9 @@ const updateService = async (req, res) => {
     try {
         const update = await Service.findByIdAndUpdate(
             req.params.id, req.body, 
-            {new: true});
+            {new: true,
+             runValidators: true
+            });
         
         if (!update) {
             return res.status(404).json({ message: 'Service not found' });
