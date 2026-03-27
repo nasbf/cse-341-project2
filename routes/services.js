@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const servicesController = require ('../controllers/services');
+const isAuthenticated = require('../middleware/autenticate');
 
 router.get('/', 
   /*  #swagger.tags = ['Services']
@@ -10,6 +11,7 @@ router.get('/',
 
 router.post('/',
     /* #swagger.tags = ['Services']
+      #swagger.security = [{ "oauth": [] }]
       #swagger.description = 'Create a Service'
       #swagger.parameters['body'] = {
       in: 'body',
@@ -26,10 +28,11 @@ router.post('/',
         }
         
       }*/
-      servicesController.createService);
+      isAuthenticated, servicesController.createService);
 
 router.put('/:id',
-  /* #swagger.tags = ['Services']
+  /*  #swagger.tags = ['Services']
+      #swagger.security = [{ "oauth": [] }]
       #swagger.description = 'Update a Service'
       #swagger.parameters['id'] = {
       in: 'path',
@@ -70,11 +73,12 @@ router.put('/:id',
     #swagger.responses[404] = {
       description: 'Service not found'
     }*/
-      servicesController.updateService);
+      isAuthenticated, servicesController.updateService);
 
 
 router.delete('/:id',
-  /* #swagger.tags = ['Services']
+  /*  #swagger.tags = ['Services']
+      #swagger.security = [{ "oauth": [] }]
       #swagger.description = 'Delete a Service'
       #swagger.parameters['id'] = {
       in: 'path',
@@ -97,7 +101,7 @@ router.delete('/:id',
     #swagger.responses[404] = {
       description: 'Service not found'
     }*/
-      servicesController.deleteService);
+      isAuthenticated, servicesController.deleteService);
 
 
 

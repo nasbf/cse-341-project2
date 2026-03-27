@@ -5,10 +5,10 @@
     "description": "API car services",
     "version": "1.0.0"
   },
-  "host": "",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/services/": {
@@ -78,8 +78,16 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth": []
+          }
+        ]
       }
     },
     "/services/{id}": {
@@ -189,13 +197,21 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Service not found"
           },
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -236,13 +252,21 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Service not found"
           },
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth": []
+          }
+        ]
       }
     },
     "/appointments/": {
@@ -304,8 +328,16 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth": []
+          }
+        ]
       }
     },
     "/appointments/{id}": {
@@ -399,13 +431,21 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Appointment not found"
           },
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -446,13 +486,21 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Appointment not found"
           },
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth": []
+          }
+        ]
       }
     }
   }

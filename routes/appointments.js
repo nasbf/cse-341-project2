@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const appointmentsController = require ('../controllers/appointments');
+const isAuthenticated = require('../middleware/autenticate');
 
 router.get('/', 
   /*  #swagger.tags = ['Appointments']
@@ -10,6 +11,7 @@ router.get('/',
 
 router.post('/',
     /* #swagger.tags = ['Appointments']
+      #swagger.security = [{ "oauth": [] }]
       #swagger.description = 'Create new appointment'
       #swagger.parameters['body'] = {
       in: 'body',
@@ -24,10 +26,11 @@ router.post('/',
         }
         
       }*/
-      appointmentsController.createAppointment);
+      isAuthenticated, appointmentsController.createAppointment);
 
 router.put('/:id',
-  /* #swagger.tags = ['Appointments']
+  /*  #swagger.tags = ['Appointments']
+      #swagger.security = [{ "oauth": [] }]
       #swagger.description = 'Update an appointment'
       #swagger.parameters['id'] = {
       in: 'path',
@@ -66,11 +69,12 @@ router.put('/:id',
     #swagger.responses[404] = {
       description: 'Appointment not found'
     }*/
-      appointmentsController.updateAppointment);
+      isAuthenticated, appointmentsController.updateAppointment);
 
 
 router.delete('/:id',
-  /* #swagger.tags = ['Appointments']
+  /*  #swagger.tags = ['Appointments']
+      #swagger.security = [{ "oauth": [] }]
       #swagger.description = 'Delete an appointment'
       #swagger.parameters['id'] = {
       in: 'path',
@@ -93,7 +97,7 @@ router.delete('/:id',
     #swagger.responses[404] = {
       description: 'Appointment not found'
     }*/
-      appointmentsController.deleteAppointment);
+      isAuthenticated, appointmentsController.deleteAppointment);
 
 
 
