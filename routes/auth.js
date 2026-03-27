@@ -13,7 +13,7 @@ router.get('/github/callback',
     failureRedirect: '/'
   }),
   (req, res) => {
-    res.send('Login successful');
+    res.send('Login successful congratulations');
   }
 );
 
