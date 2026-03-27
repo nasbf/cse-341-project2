@@ -5,10 +5,10 @@
     "description": "API car services",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "https://cse-341-project2-tvgh.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/services/": {

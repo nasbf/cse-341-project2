@@ -5,8 +5,8 @@ const doc = {
     title: 'TG Motors API',
     description: 'API car services'
   },
-  host: 'localhost:8080',
-  schemes: ['http']
+  host: 'https://cse-341-project2-tvgh.onrender.com',
+  schemes: ['https']
 };
 
 const outputFile = './swagger.json';
