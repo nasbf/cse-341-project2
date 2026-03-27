@@ -5,7 +5,7 @@ const doc = {
     title: 'TG Motors API',
     description: 'API car services'
   },
-  host: 'https://cse-341-project2-tvgh.onrender.com',
+  host: 'cse-341-project2-tvgh.onrender.com',
   schemes: ['https']
 };
 
